@@ -63,12 +63,10 @@ async function decodeAudio(context){
             bytes[j] = decoded.charCodeAt(j);
         }
         
-        output("Decoding '"+key+"'\n")
         var ab = await context.decodeAudioData(bytes.buffer);
         sounds[key].buffer = ab;
-        output("Decoded '"+key+"': "+ab+"\n")
     }
-    
+    output("Loaded all audio files successfully")
     }catch(err){
         output("ERROR ON DECODE: \n"+err)
     }
